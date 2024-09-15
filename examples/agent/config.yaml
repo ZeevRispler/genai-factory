@@ -1,0 +1,20 @@
+api_url: "http://localhost:8001"
+verbose: true
+log_level: "DEBUG"
+use_local_db: true
+chunk_size: 1024
+chunk_overlap: 20
+embeddings:
+  class_name: "huggingface"
+  model_name: "all-MiniLM-L6-v2"
+default_llm:
+  class_name: "langchain_openai.ChatOpenAI"
+  temperature: 0
+  model_name: "gpt-4"
+default_vector_store:
+  class_name: "chroma"
+  collection_name: "default"
+  connection_args:
+    address": "localhost:19530"
+
+#TODO Make this functional
