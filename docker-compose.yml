@@ -25,6 +25,8 @@ services:
       - controller
     networks:
       - app-network
+    volumes:
+      - ${PWD}/examples/credit_card_mongo/cc_images:/app/cc_images
 
 networks:
   app-network:

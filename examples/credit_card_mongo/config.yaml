@@ -1,0 +1,15 @@
+embeddings:
+  class_name: "langchain_community.embeddings.HuggingFaceInstructEmbeddings"
+default_llm:
+  class_name: "langchain_openai.ChatOpenAI"
+  temperature: 0.5
+  model_name: "gpt-4"
+default_vector_store:
+  class_name: "examples.credit_card_mongo.mongo_db.MongoDBConnector"
+  collection_name: default
+  connection_args:
+    connection_string: "mongodb+srv://ashwin:pswd123ash@production.2wqno.mongodb.net/?retryWrites=true&w=majority"
+    db_name: vdb
+    index_name: "vector_index"
+    embedding_key: embedding
+    text_key: text
