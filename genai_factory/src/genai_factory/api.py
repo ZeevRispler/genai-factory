@@ -98,6 +98,7 @@ async def infer_workflow(
     auth=Depends(get_auth_user),
 ):
     """This is the query command"""
+
     app_server = request.app.extra.get("app_server")
     if not app_server:
         raise ValueError("app_server not found in app")
@@ -107,6 +108,7 @@ async def infer_workflow(
         "session_name": item.session_name,
         "query": item.question,
         "workflow_id": workflow.uid,
+        "audio_chunk": item.audio_chunk,
     }
     resp = app_server.run_workflow(name, event)
     print(f"resp: {resp}")

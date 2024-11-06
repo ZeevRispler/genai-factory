@@ -35,31 +35,31 @@ _IS_LOCAL_CONFIG = os.environ.get(
 ]
 _CONFIG_PATH = os.environ.get("WORKFLOWS_CONFIG_PATH", None)
 
-
-@click.group()
-def main():
-    pass
-
-
-@click.command(help="Run a GenAI Factory workflows deployment script.")
-@click.argument(
-    "workflows-path",
-    type=click.Path(exists=True, path_type=pathlib.Path),
-)
-@click.option(
-    "-c",
-    "--config-path",
-    type=click.Path(exists=True, path_type=pathlib.Path),
-    help="Path to a config file to use. Note: This option takes priority on both set configuration via the workflow "
-    "server instance in code, and via path from environment variable.",
-)
-@click.option(
-    "-d",
-    "--deployer",
-    type=click.Choice(choices=["fastapi", "nuclio"]),
-    default="fastapi",
-    help="How to deploy the workflow server with the added workflows in the given script.",
-)
+#
+# @click.group()
+# def main():
+#     pass
+#
+#
+# @click.command(help="Run a GenAI Factory workflows deployment script.")
+# @click.argument(
+#     "workflows-path",
+#     type=click.Path(exists=True, path_type=pathlib.Path),
+# )
+# @click.option(
+#     "-c",
+#     "--config-path",
+#     type=click.Path(exists=True, path_type=pathlib.Path),
+#     help="Path to a config file to use. Note: This option takes priority on both set configuration via the workflow "
+#     "server instance in code, and via path from environment variable.",
+# )
+# @click.option(
+#     "-d",
+#     "--deployer",
+#     type=click.Choice(choices=["fastapi", "nuclio"]),
+#     default="fastapi",
+#     help="How to deploy the workflow server with the added workflows in the given script.",
+# )
 def run(
     workflows_path: pathlib.Path,
     config_path: pathlib.Path,
@@ -112,8 +112,8 @@ def run(
     workflow_server.deploy(router=router)
 
 
-main.add_command(run)
+# main.add_command(run)
 
 
 if __name__ == "__main__":
-    main()
+    run(config_path=pathlib.Path("../../../zeev/nvidia_nim/workflow-config.yaml"), workflows_path=pathlib.Path("../../../zeev/nvidia_nim/workflow.py"), deployer="fastapi")
