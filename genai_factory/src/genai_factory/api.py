@@ -108,7 +108,7 @@ async def infer_workflow(
         "session_name": item.session_name,
         "query": item.question,
         "workflow_id": workflow.uid,
-        "audio_chunk": item.audio_chunk,
+        "audio_request": item.audio_request,
     }
     resp = app_server.run_workflow(name, event)
     print(f"resp: {resp}")
