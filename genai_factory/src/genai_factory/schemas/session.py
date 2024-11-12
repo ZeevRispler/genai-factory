@@ -51,8 +51,8 @@ class Conversation(BaseModel):
     def __str__(self):
         return "\n".join([f"{m.role}: {m.content}" for m in self.messages])
 
-    def add_message(self, role, content, sources=None):
-        self.messages.append(Message(role=role, content=content, sources=sources))
+    def add_message(self, role, content, sources=None, extra_data=None):
+        self.messages.append(Message(role=role, content=content, sources=sources, extra_data=extra_data))
 
     def to_list(self):
         return self.dict()["messages"]
@@ -69,11 +69,12 @@ class Conversation(BaseModel):
 
 
 class ChatSession(BaseWithOwner):
-    _extra_fields = ["history"]
+    _extra_fields = ["history", "extra_data"]
     _top_level_fields = ["workflow_id"]
 
     workflow_id: str
     history: List[Message] = []
+    extra_data: dict = {}
 
     def to_conversation(self):
         return Conversation.from_list(self.history)
