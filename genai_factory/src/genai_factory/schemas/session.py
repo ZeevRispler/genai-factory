@@ -67,6 +67,12 @@ class Conversation(BaseModel):
         return cls.parse_obj({"messages": data or []})
         # return cls.model_validate({"messages": data or []})
 
+    def __getitem__(self, item_number):
+        return self.messages[item_number]
+
+    def __len__(self):
+        return len(self.messages)
+
 
 class ChatSession(BaseWithOwner):
     _extra_fields = ["history", "extra_data"]

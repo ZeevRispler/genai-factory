@@ -87,7 +87,7 @@ class WorkflowServer:
             raise ValueError(f"workflow {name} not found")
 
         # Run the workflow:
-        print(f"Running event: {event}")
+        # print(f"Running event: {event}")
         return self._workflows[name].run(event)
 
     def _build(self):

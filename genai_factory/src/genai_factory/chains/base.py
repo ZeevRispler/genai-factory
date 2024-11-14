@@ -39,6 +39,8 @@ class ChainRunner(storey.Flow):
         else:
             print("step name: ", self.name)
             element = self._get_event_or_body(event)
+            if isinstance(element, dict):
+                element = WorkflowEvent(**element)
             if self._is_async:
                 resp = await self._run(element)
             else:
