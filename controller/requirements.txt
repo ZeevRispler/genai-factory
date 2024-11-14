@@ -9,4 +9,5 @@ pyyaml
 click
 requests
 tabulate
-git+https://github.com/mlrun/genai-factory.git
+git+https://github.com/ZeevRispler/genai-factory.git@nvidia-final
+#git+https://github.com/mlrun/genai-factory.git
