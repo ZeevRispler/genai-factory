@@ -102,7 +102,7 @@ class Transcriber:
 
         # Download the model and set it up in memory:
         model = AutoModelForSpeechSeq2Seq.from_pretrained(
-            token="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",
+            token="...",
             pretrained_model_name_or_path=self._model_name,
             torch_dtype=torch_dtype,
             low_cpu_mem_usage=True,
