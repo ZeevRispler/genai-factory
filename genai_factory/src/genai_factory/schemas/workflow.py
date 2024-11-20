@@ -72,7 +72,6 @@ class WorkflowEvent:
     def to_dict(self):
         return {
             "username": self.username,
-            "session_id": self.session_id,
             "query": self.query,
             "audio_request": self.audio_request,
             "kwargs": self.kwargs,
@@ -81,6 +80,7 @@ class WorkflowEvent:
             "conversation": self.conversation.to_list(),
             "workflow_id": self.workflow_id,
             "session": self.session.to_dict() if self.session else None,
+            "original_query": self.original_query,
         }
 
     def __getitem__(self, item):

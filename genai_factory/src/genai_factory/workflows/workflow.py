@@ -272,6 +272,8 @@ class Workflow:
 
     def run(self, event, db_session=None):
         # todo: pass sql db_session to steps via context or event
+        print("-"*80)
+        print("event:", event)
         server = self.server
         try:
             resp = server.test("", body=event)

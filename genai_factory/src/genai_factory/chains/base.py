@@ -89,7 +89,7 @@ class HistorySaver(ChainRunner):
             event.results[self.question_key]
             if self.question_key
             else event.original_query
-        )
+        ) or event.query # in the parallel we don't have the original query
         sources = None
         if self.save_sources and "sources" in event.results:
             sources = [src.metadata for src in event.results["sources"]]

@@ -116,4 +116,5 @@ def run(
 
 
 if __name__ == "__main__":
-    run(config_path=pathlib.Path("../../../zeev/nvidia_nim/workflow-config.yaml"), workflows_path=pathlib.Path("../../../zeev/nvidia_nim/workflow.py"), deployer="fastapi")
+    # run(config_path=pathlib.Path("../../../zeev/nvidia_nim/workflow-config.yaml"), workflows_path=pathlib.Path("../../../zeev/nvidia_nim/workflow.py"), deployer="fastapi")
+    run(config_path=pathlib.Path("../../../zeev/nvidia_nim/workflow-config.yaml"), workflows_path=pathlib.Path("../../../zeev/analysis_pipe/workflow.py"), deployer="fastapi") # TODO - change to the correct path
