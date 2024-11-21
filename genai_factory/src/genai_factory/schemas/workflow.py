@@ -50,14 +50,14 @@ class WorkflowEvent:
         session_name=None,
         db_session=None,
         workflow_id=None,
-        audio_request=None,
+        user_request=None,
         **kwargs,
     ):
         self.username = username
         self.session_name = session_name
         self.original_query = query
         self.query = query
-        self.audio_request = audio_request
+        self.user_request = user_request
         self.kwargs = kwargs
 
         self.session = None
@@ -73,7 +73,7 @@ class WorkflowEvent:
         return {
             "username": self.username,
             "query": self.query,
-            "audio_request": self.audio_request,
+            "user_request": self.user_request,
             "kwargs": self.kwargs,
             "results": self.results,
             "state": self.state,

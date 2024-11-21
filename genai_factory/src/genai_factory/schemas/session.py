@@ -25,7 +25,7 @@ class QueryItem(BaseModel):
     session_name: Optional[str] = None
     filter: Optional[List[Tuple[str, str]]] = None
     data_source: Optional[str] = None
-    audio_request: Optional[dict] = None
+    user_request: Optional[dict] = None
 
 
 class ChatRole(str, Enum):
